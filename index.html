@@ -34,7 +34,10 @@ function drawHeart(x, y, size, color) {
     ctx.lineTo(x + hx, y + hy);
   }
   ctx.fillStyle = color;
+  ctx.shadowColor = "#ff4d4d";   // Glow
+  ctx.shadowBlur = 20;
   ctx.fill();
+  ctx.shadowBlur = 0;
 }
 
 function animate() {
@@ -57,11 +60,12 @@ function animate() {
     ctx.stroke();
   }
 
-  // اسم حسن
+  // اسم Hassan بالنص تماماً
   ctx.fillStyle = "white";
-  ctx.font = "30px Arial";
+  ctx.font = "bold 32px Arial";
   ctx.textAlign = "center";
-  ctx.fillText("Hassan", canvas.width/2, canvas.height/2 + 120);
+  ctx.textBaseline = "middle"; // أهم تعديل
+  ctx.fillText("Hassan", canvas.width/2, canvas.height/2);
 
   t += 0.05;
   requestAnimationFrame(animate);
